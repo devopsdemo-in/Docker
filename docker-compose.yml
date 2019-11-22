@@ -1,0 +1,54 @@
+version: "3.3"
+services:
+  Jenkins:
+    image: sushant227/jenkins:latest
+    container_name: jenkins
+    ports: 
+      - "8080:8080"
+      - "8888:8888"
+      - "8889:8889"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /opt/downloads:/var/downloads
+      - /opt/jenkins_home:/var/jenkins_home
+  Tomcat:
+    image: sushant227/tomcat:latest
+    container_name: tomcat
+    ports:
+      - "8082:8080"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+  Mysql:
+    image: sushant227/mysql:latest
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: H@ckath0n
+  Sonarqube:
+    image: sushant227/sonarqube:latest
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+  Nexus:
+    image: sushant227/nexus3
+    container_name: nexus
+    ports:
+      - "8081:8081"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
