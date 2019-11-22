@@ -17,6 +17,6 @@ RUN cd /opt/tomcat/Docker/ && ls
 RUN cp -f /opt/tomcat/Docker/server.xml /opt/tomcat/conf/.
 RUN cp -f /opt/tomcat/Docker/tomcat-users.xml /opt/tomcat/conf/.
 RUN cp -f /opt/tomcat/Docker/context.xml /opt/tomcat/webapps/manager/META-INF/.
-EXPOSE 8080
+EXPOSE 8888
 
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
