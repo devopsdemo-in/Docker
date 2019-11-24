@@ -4,7 +4,7 @@ MAINTAINER sushantpedhapalli@gmail.com
 ENV container docker
 WORKDIR /opt
 RUN apt-get update
-RUN apt-get install openjdk-8-jdk wget vim unzip tar make gcc g++ gnupg gnupg2 gnupg1 -y
+RUN apt-get install openjdk-8-jdk wget vim unzip tar make gcc g++ git gnupg gnupg2 gnupg1 -y
 RUN wget https://updates.jenkins-ci.org/download/war/2.205/jenkins.war
 RUN java -version
 RUN mkdir /opt/maven
